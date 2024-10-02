@@ -85,9 +85,28 @@ def add_student():
         'course': course,
         'subjects': subjects_grades
     }
+ #Кислий Олександр
+#Функція пошуку студентів за номером курсу
+def get_older_students(students_performance):
+    course_number = int(input("Введіть номер шуканого курсу: "))
+    older_courses = []
+    for student, details in students_performance.items():
+        if details['course'] == course_number:
+            older_courses.append((student, details['group_number'], details['subjects']))
+    if older_courses:
+        print("Студенти на курсі", course_number)
+        for student in older_courses:
+            print(f"Студент: {student[0]}")
+            print(f"Група: {student[1]}")
+            print("Предмети:")
+            for subject, score in student[2].items():
+                print(f"    {subject}: {score}")
+    else:
+        print(f"Немає студентів на курсі {course_number}")
 
 #Виклик функції для додавання студента
 add_student()
+older_students=get_older_students(students_performance)
 
 #Вивести словник для перевірки доданого студента
 print(students_performance)
