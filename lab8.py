@@ -35,19 +35,10 @@ students_performance = {
             "Алгоритми": 82,
             "Чисельні методи": 61
         }
-    },
-    "Лопатка Артем Сергійович": {
-        'group_number': "КН-41",
-        'course': 1,
-        'subjects': {
-            "ММДО": 70,
-            "Алгоритми": 82,
-            "Чисельні методи": 81
-        }
     }
 }
 
-#Виведення кожного студента окремо
+# Виведення кожного студента окремо
 for student, details in students_performance.items():
     print(f"Студент: {student}")
     print(f"  Група: {details['group_number']}")
@@ -85,6 +76,19 @@ def add_student():
         'course': course,
         'subjects': subjects_grades
     }
+
+#Виклик функції для додавання студента
+add_student()
+
+for student, details in students_performance.items():
+    print(f"Студент: {student}")
+    print(f"  Група: {details['group_number']}")
+    print(f"  Курс: {details['course']}")
+    print("  Предмети:")
+    for subject, score in details['subjects'].items():
+        print(f"    {subject}: {score}")
+    print()  #Для відступу між студентами
+
  #Кислий Олександр
 #Функція пошуку студентів за номером курсу
 def get_older_students(students_performance):
