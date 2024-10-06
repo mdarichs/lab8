@@ -114,3 +114,28 @@ older_students=get_older_students(students_performance)
 
 #Вивести словник для перевірки доданого студента
 print(students_performance)
+
+#Половинка Софія
+# Функція для видалення студента за його повним іменем
+def remove_student(students_performance):
+    full_name = input("Введіть повне ім'я студента, якого потрібно видалити: ")
+    
+    if full_name in students_performance:
+        del students_performance[full_name]
+        print(f"Студента {full_name} успішно видалено.")
+    else:
+        print(f"Студента з ім'ям {full_name} не знайдено.")
+
+# Виклик функції для видалення студента
+remove_student(students_performance)
+
+# Виведення словника після видалення для перевірки
+for student, details in students_performance.items():
+    print(f"Студент: {student}")
+    print(f"  Група: {details['group_number']}")
+    print(f"  Курс: {details['course']}")
+    print("  Предмети:")
+    for subject, score in details['subjects'].items():
+        print(f"    {subject}: {score}")
+    print()  # Для відступу між студентами
+
