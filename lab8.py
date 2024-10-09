@@ -139,3 +139,19 @@ for student, details in students_performance.items():
         print(f"    {subject}: {score}")
     print()  # Для відступу між студентами
 
+# Лопатка Артем
+# Функція для підрахунку середнього балу студентів
+def calculate_average_grade(students_performance):
+    averages = {}
+    for student, details in students_performance.items():
+        total_score = sum(details['subjects'].values())
+        subjects_count = len(details['subjects'])
+        average_score = total_score / subjects_count
+        averages[student] = average_score
+
+    # Виведення середнього балу для кожного студента
+    for student, average in averages.items():
+        print(f"Середній бал студента {student}: {average:.2f}")
+
+# Виклик функції
+calculate_average_grade(students_performance)
