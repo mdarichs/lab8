@@ -155,3 +155,27 @@ def calculate_average_grade(students_performance):
 
 # Виклик функції
 calculate_average_grade(students_performance)
+
+#Єльнікова Анна
+# Функція для пошуку студентів із найвищим середнім балом
+def find_top_students(students_performance):
+    top_students = []
+    highest_average = 0
+
+    for student, details in students_performance.items():
+        total_score = sum(details['subjects'].values())
+        subjects_count = len(details['subjects'])
+        average_score = total_score / subjects_count
+
+        if average_score > highest_average:
+            highest_average = average_score
+            top_students = [student]  # Оновлюємо список топових студентів
+        elif average_score == highest_average:
+            top_students.append(student)  # Додаємо до списку, якщо середній бал однаковий
+
+    # Виведення результатів
+    print("\nСтуденти з найвищим середнім балом:")
+    for student in top_students:
+        print(f"{student} (Середній бал: {highest_average:.2f})")
+
+find_top_students(students_performance)
